@@ -14,6 +14,7 @@
 struct ImGuiInstance {
 private:
     GLFWwindow* window;
+    ImFont* font2; 
 
 public:
     ImGuiInstance(std::size_t width, std::size_t height, std::string const& windowName) {
