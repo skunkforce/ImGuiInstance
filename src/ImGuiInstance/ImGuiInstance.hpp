@@ -11,6 +11,8 @@
 #include <implot.h>
 #include <string>
 
+#include "Inter_24pt-Medium.hpp"
+
 struct ImGuiInstance {
 private:
     GLFWwindow* window;
@@ -63,15 +65,10 @@ public:
         [[maybe_unused]] ImGuiIO& io = ImGui::GetIO();
         ImGui::StyleColorsDark();
 
-        
-        // Specific Font for OmnAIView 
-        if (io.Fonts->AddFontFromFileTTF("../fonts/Inter_24pt-Medium.ttf", 24.0f) != nullptr) {
-               font2 = io.Fonts->AddFontFromFileTTF("../fonts/Inter_24pt-Medium.ttf", 24.0f);
-        }
-        else if (io.Fonts->AddFontFromFileTTF("..\\fonts\\Inter_24pt-Medium.ttf", 24.0f) != nullptr) {
-            font2 = io.Fonts->AddFontFromFileTTF("..\\fonts\\Inter_24pt-Medium.ttf", 24.0f); 
-        }
-        else std::fprintf(stderr, "font2 is nullptr, cannot push font\n"); 
+        ImFontConfig font_cfg;
+        font_cfg.FontDataOwnedByAtlas = false;
+        font2 = io.Fonts->AddFontFromMemoryTTF(Inter_24pt_Medium_ttf, Inter_24pt_Medium_ttf_len, 24.0f, &font_cfg);
+
 
         ImGui_ImplGlfw_InitForOpenGL(window, true);
         ImGui_ImplOpenGL3_Init(glsl_version);
