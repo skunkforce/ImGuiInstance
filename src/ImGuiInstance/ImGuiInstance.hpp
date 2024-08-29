@@ -63,12 +63,15 @@ public:
         [[maybe_unused]] ImGuiIO& io = ImGui::GetIO();
         ImGui::StyleColorsDark();
 
+        
         // Specific Font for OmnAIView 
-        font2 = io.Fonts->AddFontFromFileTTF("../fonts/Inter_24pt-Medium.ttf", 24.0f); 
-        if (font2 == nullptr) {
-                std::fprintf(stderr, "Failed to load font: ../../fonts/Inter_24pt-Medium.ttf\n");
-                std::terminate();
+        if (io.Fonts->AddFontFromFileTTF("../fonts/Inter_24pt-Medium.ttf", 24.0f) != nullptr) {
+               font2 = io.Fonts->AddFontFromFileTTF("../fonts/Inter_24pt-Medium.ttf", 24.0f);
         }
+        else if (io.Fonts->AddFontFromFileTTF("..\\fonts\\Inter_24pt-Medium.ttf", 24.0f) != nullptr) {
+            font2 = io.Fonts->AddFontFromFileTTF("..\\fonts\\Inter_24pt-Medium.ttf", 24.0f); 
+        }
+        else std::fprintf(stderr, "font2 is nullptr, cannot push font\n"); 
 
         ImGui_ImplGlfw_InitForOpenGL(window, true);
         ImGui_ImplOpenGL3_Init(glsl_version);
