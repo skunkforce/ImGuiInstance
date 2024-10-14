@@ -1,4 +1,5 @@
 #pragma once
+#define ImDrawIdx unsigned int
 #include <glad/glad.h>
 //
 #include <GLFW/glfw3.h>
