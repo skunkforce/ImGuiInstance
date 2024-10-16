@@ -1,16 +1,18 @@
 #pragma once
-#define ImDrawIdx unsigned int
 #include <glad/glad.h>
-//
 #include <GLFW/glfw3.h>
 #include <cstdio>
 #include <exception>
 #include <functional>
-#include <imgui.h>
-#include <imgui_impl_glfw.h>
-#include <imgui_impl_opengl3.h>
-#include <implot.h>
 #include <string>
+
+// ImGui includes
+#include "imgui.h"
+#include "backends/imgui_impl_glfw.h"
+#include "backends/imgui_impl_opengl3.h"
+
+//Implot includes
+#include <implot.h>
 
 #include "Inter_24pt-Medium.hpp"
 

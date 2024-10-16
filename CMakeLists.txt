@@ -12,10 +12,6 @@ target_link_libraries(imgui_instance INTERFACE glad::glad)
 find_package(glfw3 CONFIG REQUIRED)
 target_link_libraries(imgui_instance INTERFACE glfw)
 
-find_package(imgui CONFIG REQUIRED)
-target_link_libraries(imgui_instance INTERFACE imgui::imgui)
-
-find_package(implot CONFIG REQUIRED)
-target_link_libraries(imgui_instance INTERFACE implot::implot)
+target_link_libraries(imgui_instance INTERFACE my_imgui my_implot)
 
 add_library(imgui_instance::imgui_instance ALIAS imgui_instance)
